@@ -3,7 +3,7 @@ module github.com/techschool/simplebank
 go 1.16
 
 require (
-	github.com/gin-gonic/gin v1.7.4 // indirect
+	github.com/gin-gonic/gin v1.7.4
 	github.com/go-playground/validator/v10 v10.9.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
@@ -16,7 +16,5 @@ require (
 	golang.org/x/sys v0.0.0-20210925032602-92d5a993a665 // indirect
 	golang.org/x/text v0.3.7 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect
-	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
-	gopkg.in/go-playground/validator.v8 v8.18.2 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
