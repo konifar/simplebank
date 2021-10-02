@@ -4,7 +4,7 @@
 package db
 
 import (
-    "context"
+	"context"
 )
 
 const createUser = `-- name: CreateUser :one
@@ -19,29 +19,29 @@ INSERT INTO users (
 `
 
 type CreateUserParams struct {
-    Username       string `json:"username"`
-    HashedPassword string `json:"hashed_password"`
-    FullName       string `json:"full_name"`
-    Email          string `json:"email"`
+	Username       string `json:"username"`
+	HashedPassword string `json:"hashed_password"`
+	FullName       string `json:"full_name"`
+	Email          string `json:"email"`
 }
 
 func (q *Queries) CreateUser(ctx context.Context, arg CreateUserParams) (User, error) {
-    row := q.db.QueryRowContext(ctx, createUser,
-        arg.Username,
-        arg.HashedPassword,
-        arg.FullName,
-        arg.Email,
-    )
-    var i User
-    err := row.Scan(
-        &i.Username,
-        &i.HashedPassword,
-        &i.FullName,
-        &i.Email,
-        &i.PasswordChangedAt,
-        &i.CreatedAt,
-    )
-    return i, err
+	row := q.db.QueryRowContext(ctx, createUser,
+		arg.Username,
+		arg.HashedPassword,
+		arg.FullName,
+		arg.Email,
+	)
+	var i User
+	err := row.Scan(
+		&i.Username,
+		&i.HashedPassword,
+		&i.FullName,
+		&i.Email,
+		&i.PasswordChangedAt,
+		&i.CreatedAt,
+	)
+	return i, err
 }
 
 const getUser = `-- name: GetUser :one
@@ -50,15 +50,15 @@ WHERE username = $1 LIMIT 1
 `
 
 func (q *Queries) GetUser(ctx context.Context, username string) (User, error) {
-    row := q.db.QueryRowContext(ctx, getUser, username)
-    var i User
-    err := row.Scan(
-        &i.Username,
-        &i.HashedPassword,
-        &i.FullName,
-        &i.Email,
-        &i.PasswordChangedAt,
-        &i.CreatedAt,
-    )
-    return i, err
+	row := q.db.QueryRowContext(ctx, getUser, username)
+	var i User
+	err := row.Scan(
+		&i.Username,
+		&i.HashedPassword,
+		&i.FullName,
+		&i.Email,
+		&i.PasswordChangedAt,
+		&i.CreatedAt,
+	)
+	return i, err
 }
